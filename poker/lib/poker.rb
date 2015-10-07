@@ -7,6 +7,9 @@ class Card
     @value = value
   end
 
+  def ==(other)
+    self.value == other.value && self.suit == other.suit
+  end
 end
 
 
@@ -19,7 +22,7 @@ class Deck
   def initialize
     @cards = []
     populate
-    cards.shuffle
+    cards.shuffle!
   end
 
   def populate
@@ -32,4 +35,32 @@ class Deck
     nil
   end
 
+  # def draw
+  #   cards.pop
+  # end
+
 end
+
+class Hand
+
+  attr_reader :deck, :hand
+  def initialize(deck)
+    @deck = deck
+    @hand = []
+    #5.times { draw }
+
+  end
+
+  def draw
+    hand << deck.cards.pop
+  end
+
+end
+#
+# class Game
+#
+#   def initialize
+#     @deck = Deck.new
+#   end
+#
+# end
