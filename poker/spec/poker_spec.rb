@@ -57,6 +57,21 @@ describe Hand do
       expect(my_hand.hand.all? { |c| c.is_a?(Card) }).to be true
     end
 
+    it "recognizes straight flush" do
+      sf_hand = [Card.new(:hearts, 3), Card.new(:hearts, 4), Card.new(:hearts, 5),
+      Card.new(:hearts, 6), Card.new(:hearts, 7)]
+      test_hand = Hand.new(Deck.new, sf_hand)
+
+      expect(test_hand.straight? && test_hand.flush?).to be true
+    end
+
+    it "recognizes a four of a kind"
+
+    it "recognizes a full house"
+
+    it "recognizes a flush"
+
+
   end
 
 end
